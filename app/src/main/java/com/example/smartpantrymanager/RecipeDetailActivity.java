@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class RecipeDetailActivity extends AppCompatActivity {
+    public static final String EXTRA_RECIPE_ID = "recipe_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
