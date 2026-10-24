@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colours used by the Smart Pantry Manager -->
+    <color name="pantry_green">#2E7D32</color>
+    <color name="expiry_ok">#2E7D32</color>
+    <color name="expiry_soon">#E65100</color>
+    <color name="expiry_expired">#C62828</color>
+    <color name="expiry_none">#757575</color>
+    <color name="banner_background">#FFF3E0</color>
+    <color name="banner_text">#5D4037</color>
 </resources>
