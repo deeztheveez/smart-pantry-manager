@@ -62,8 +62,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(v -> finish());
 
         // Fill the unit drop-down from our list of units
-        ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_dropdown_item, IngredientNormaliser.UNITS);
+        ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, IngredientNormaliser.UNITS);
         spUnit.setAdapter(unitAdapter);
 
         // Did the previous screen send us an item id? If so, we are editing.
@@ -116,8 +115,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
             // Months start at 0 in Java, so add 1
             expiryIso = String.format(Locale.UK, "%04d-%02d-%02d", year, month + 1, day);
             etExpiry.setText(ExpiryUtils.formatForDisplay(expiryIso));
-        }, today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH))
-                .show();
+        }, today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     // INPUT VALIDATION: returns true only if the form is filled in sensibly
@@ -186,16 +184,11 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
     // DELETE (only available in edit mode)
     private void confirmDelete() {
-        new AlertDialog.Builder(this)
-                .setTitle("Delete ingredient")
-                .setMessage("Remove this ingredient from your pantry?")
-                .setPositiveButton("Delete", (dialog, which) -> {
-                    db.deletePantryItem(itemId);
-                    Toast.makeText(this, "Ingredient deleted", Toast.LENGTH_SHORT).show();
-                    finish();
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
+        new AlertDialog.Builder(this).setTitle("Delete ingredient").setMessage("Remove this ingredient from your pantry?").setPositiveButton("Delete", (dialog, which) -> {
+            db.deletePantryItem(itemId);
+            Toast.makeText(this, "Ingredient deleted", Toast.LENGTH_SHORT).show();
+            finish();
+        }).setNegativeButton("Cancel", null).show();
     }
 
     // Small helper: safely get the text from an input box
